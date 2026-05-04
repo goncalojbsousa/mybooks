@@ -14,7 +14,7 @@
   </ion-header>
 
   <ion-list>
-    <ion-item *ngFor="let book of books">
+    <ion-item *ngFor="let book of books" button (click)="openDetail(book)">
       <ion-thumbnail slot="start">
         <img [src]="book.cover || 'assets/covers/placeholder.png'" alt="Capa" />
       </ion-thumbnail>
@@ -29,7 +29,7 @@
       </ion-label>
 
       <ion-buttons slot="end">
-        <ion-button fill="clear" (click)="toggleRead(book)">
+        <ion-button fill="clear" (click)="toggleRead(book, $event)">
           <ion-icon [name]="book.read ? 'checkmark-done' : 'book-outline'"></ion-icon>
         </ion-button>
       </ion-buttons>

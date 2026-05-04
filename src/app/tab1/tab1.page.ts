@@ -16,6 +16,6 @@ export class Tab1Page {
   public experiencia = 'Ao longo do meu percurso, desenvolvi competências em programação e desenvolvimento de software, incluindo experiência prática num estágio como desenvolvedor web, onde trabalhei com integração de sistemas e aplicações fullstack.';
   public interesses = 'Nos meus tempos livres, gosto de desenvolver projetos próprios, tanto na área web como em gamedev. Desenvolvi o EasyPeasyCV e o GameHub Backlog.';
 
-  constructor() {}
+  constructor() { }
 
 }
