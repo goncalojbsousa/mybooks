@@ -13,8 +13,28 @@
     </ion-toolbar>
   </ion-header>
 
+  <ion-item>
+    <ion-label>Género</ion-label>
+    <ion-select interface="popover" [(ngModel)]="selectedGenre">
+      <ion-select-option value="all">Todos</ion-select-option>
+      <ion-select-option *ngFor="let genre of genres" [value]="genre">{{ genre }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-segment [(ngModel)]="selectedStatus">
+    <ion-segment-button value="all">
+      <ion-label>Todos</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="read">
+      <ion-label>Lidos</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="unread">
+      <ion-label>Por ler</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
   <ion-list>
-    <ion-item *ngFor="let book of books" button (click)="openDetail(book)">
+    <ion-item *ngFor="let book of filteredBooks" button (click)="openDetail(book)">
       <ion-thumbnail slot="start">
         <img [src]="book.cover || 'assets/covers/placeholder.png'" alt="Capa" />
       </ion-thumbnail>

@@ -11,11 +11,36 @@ import { Book } from '../models/book.model';
 })
 export class Tab2Page implements OnInit {
   books: Book[] = [];
+  genres: string[] = [];
+  selectedGenre = 'all';
+  selectedStatus: 'all' | 'read' | 'unread' = 'all';
 
   constructor(private booksService: BooksService, private router: Router) { }
 
   ngOnInit(): void {
-    this.books = this.booksService.getAll();
+    this.loadBooks();
+  }
+
+  ionViewWillEnter(): void {
+    this.loadBooks();
+  }
+
+  get filteredBooks(): Book[] {
+    let list = this.books;
+
+    if (this.selectedStatus === 'read') {
+      list = list.filter(b => b.read);
+    }
+
+    if (this.selectedStatus === 'unread') {
+      list = list.filter(b => !b.read);
+    }
+
+    if (this.selectedGenre !== 'all') {
+      list = list.filter(b => b.genre === this.selectedGenre);
+    }
+
+    return list;
   }
 
   openDetail(book: Book) {
@@ -25,5 +50,10 @@ export class Tab2Page implements OnInit {
   toggleRead(book: Book, event?: Event) {
     event?.stopImmediatePropagation();
     this.booksService.toggleRead(book.id);
+  }
+
+  private loadBooks(): void {
+    this.books = this.booksService.getAll();
+    this.genres = Array.from(new Set(this.books.map(b => b.genre))).sort();
   }
 }
