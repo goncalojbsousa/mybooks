@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { BooksService } from '../services/books.service';
+import { Book } from '../models/book.model';
 
 @Component({
   selector: 'app-tab2',
@@ -6,8 +8,16 @@ import { Component } from '@angular/core';
   styleUrls: ['tab2.page.scss'],
   standalone: false,
 })
-export class Tab2Page {
+export class Tab2Page implements OnInit {
+  books: Book[] = [];
 
-  constructor() {}
+  constructor(private booksService: BooksService) { }
 
+  ngOnInit(): void {
+    this.books = this.booksService.getAll();
+  }
+
+  toggleRead(book: Book) {
+    this.booksService.toggleRead(book.id);
+  }
 }
