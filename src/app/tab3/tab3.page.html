@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      Favoritos
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,35 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
+      <ion-title size="large">Favoritos</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-list *ngIf="favorites.length; else noFavorites">
+    <ion-item *ngFor="let book of favorites" button (click)="openDetail(book)">
+      <ion-thumbnail slot="start">
+        <img [src]="book.cover || 'assets/covers/placeholder.png'" alt="Capa" />
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ book.title }}</h2>
+        <p>{{ book.author }}</p>
+        <p>
+          <ion-badge>{{ book.genre }}</ion-badge>
+          <ion-badge>{{ book.year }}</ion-badge>
+        </p>
+      </ion-label>
+
+      <ion-buttons slot="end">
+        <ion-button fill="clear" (click)="toggleFavorite(book, $event)">
+          <ion-icon name="heart"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+
+  <ng-template #noFavorites>
+    <div class="ion-padding">
+      <ion-text color="medium">Sem livros favoritos.</ion-text>
+    </div>
+  </ng-template>
 </ion-content>
