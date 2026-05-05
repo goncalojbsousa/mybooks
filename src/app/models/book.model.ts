@@ -5,6 +5,7 @@ export interface Book {
     genre: string;
     year: number;
     synopsis?: string;
+    opinion?: string;
     rating?: number; // personal rating 0-5
     quotes?: string[];
     cover?: string; // url or asset path

@@ -54,6 +54,13 @@
         </ion-item>
 
         <ion-item>
+          <ion-label position="stacked">Opinião pessoal</ion-label>
+          <ion-textarea autoGrow="true" placeholder="Escreva aqui a sua opinião sobre o livro"
+            [ngModel]="book.opinion || ''" (ngModelChange)="updateOpinion(book, $event)">
+          </ion-textarea>
+        </ion-item>
+
+        <ion-item>
           <ion-label>
             <h2>Rating</h2>
             <p>{{ book.rating ?? 'Sem rating.' }}</p>

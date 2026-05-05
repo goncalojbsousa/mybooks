@@ -26,4 +26,8 @@ export class BookDetailPage implements OnInit {
   toggleRead(book: Book) {
     this.booksService.toggleRead(book.id);
   }
+
+  updateOpinion(book: Book, opinion: string) {
+    this.booksService.updateOpinion(book.id, opinion);
+  }
 }

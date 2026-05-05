@@ -13,6 +13,7 @@ export class BooksService {
             genre: 'Genero Exemplo',
             year: 2020,
             synopsis: 'Uma breve sinopse do livro de exemplo.',
+            opinion: 'Uma breve opinião do livro de exemplo.',
             rating: 4,
             quotes: ['"Um excerto marcante do livro de exemplo."'],
             cover: 'assets/covers/cover1.jpg',
@@ -26,6 +27,7 @@ export class BooksService {
             genre: 'Genero Exemplo 2',
             year: 2018,
             synopsis: 'Uma breve sinopse do segundo livro de exemplo.',
+            opinion: 'Uma breve opinião do segundo livro de exemplo.',
             rating: 5,
             quotes: [],
             cover: 'assets/covers/cover2.jpg',
@@ -51,6 +53,11 @@ export class BooksService {
     toggleFavorite(id: string): void {
         const b = this.books.find(x => x.id === id);
         if (b) { b.favorite = !b.favorite; }
+    }
+
+    updateOpinion(id: string, opinion: string): void {
+        const b = this.books.find(x => x.id === id);
+        if (b) { b.opinion = opinion; }
     }
 
     toggleRead(id: string): void {
