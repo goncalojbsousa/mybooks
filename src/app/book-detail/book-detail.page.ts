@@ -11,6 +11,7 @@ import { BooksService } from '../services/books.service';
 })
 export class BookDetailPage implements OnInit {
   book?: Book;
+  ratingOptions = [1, 2, 3, 4, 5];
 
   constructor(private route: ActivatedRoute, private booksService: BooksService) { }
 
@@ -29,5 +30,9 @@ export class BookDetailPage implements OnInit {
 
   updateOpinion(book: Book, opinion: string) {
     this.booksService.updateOpinion(book.id, opinion);
+  }
+
+  setRating(book: Book, rating: number) {
+    this.booksService.updateRating(book.id, rating);
   }
 }

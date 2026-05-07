@@ -14,7 +14,7 @@ export class BooksService {
             year: 2020,
             synopsis: 'Uma breve sinopse do livro de exemplo.',
             opinion: 'Uma breve opinião do livro de exemplo.',
-            rating: 4,
+            rating: undefined,
             quotes: ['"Um excerto marcante do livro de exemplo."'],
             cover: 'assets/covers/cover1.jpg',
             favorite: true,
@@ -58,6 +58,11 @@ export class BooksService {
     updateOpinion(id: string, opinion: string): void {
         const b = this.books.find(x => x.id === id);
         if (b) { b.opinion = opinion; }
+    }
+
+    updateRating(id: string, rating: number): void {
+        const b = this.books.find(x => x.id === id);
+        if (b) { b.rating = rating; }
     }
 
     toggleRead(id: string): void {

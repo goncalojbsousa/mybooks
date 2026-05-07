@@ -61,10 +61,15 @@
         </ion-item>
 
         <ion-item>
-          <ion-label>
-            <h2>Rating</h2>
-            <p>{{ book.rating ?? 'Sem rating.' }}</p>
-          </ion-label>
+          <ion-label position="stacked">Rating</ion-label>
+          <div class="rating-stars">
+            <ion-button
+              *ngFor="let star of ratingOptions"
+              fill="clear"
+              (click)="setRating(book, star)">
+              <ion-icon [name]="(book.rating || 0) >= star ? 'star' : 'star-outline'"></ion-icon>
+            </ion-button>
+          </div>
         </ion-item>
 
         <ion-item>
