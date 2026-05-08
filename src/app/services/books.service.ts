@@ -38,7 +38,7 @@ export class BooksService {
             ],
             "cover": "assets/covers/bookcover-amn.jpg",
             "favorite": false,
-            "read": true
+            "read": false
         },
         {
             "id": "3",
@@ -55,7 +55,7 @@ export class BooksService {
             ],
             "cover": "assets/covers/bookcover-omds.jpg",
             "favorite": false,
-            "read": true
+            "read": false
         },
         {
             "id": "4",
@@ -72,7 +72,7 @@ export class BooksService {
             ],
             "cover": "assets/covers/bookcover-oik.jpg",
             "favorite": true,
-            "read": true
+            "read": false
         }
     ];
 
