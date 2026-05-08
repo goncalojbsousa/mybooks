@@ -13,8 +13,10 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-list *ngIf="favorites.length; else noFavorites">
-    <ion-item *ngFor="let book of favorites" button (click)="openDetail(book)">
+  @if (favorites.length) {
+  <ion-list>
+    @for (book of favorites; track book) {
+    <ion-item button (click)="openDetail(book)">
       <ion-thumbnail slot="start">
         <img [src]="book.cover || 'assets/covers/placeholder.png'" alt="Capa" />
       </ion-thumbnail>
@@ -33,11 +35,11 @@
         </ion-button>
       </ion-buttons>
     </ion-item>
+    }
   </ion-list>
-
-  <ng-template #noFavorites>
-    <div class="ion-padding">
-      <ion-text color="medium">Sem livros favoritos.</ion-text>
-    </div>
-  </ng-template>
+  } @else {
+  <div class="ion-padding">
+    <ion-text color="medium">Sem livros favoritos.</ion-text>
+  </div>
+  }
 </ion-content>

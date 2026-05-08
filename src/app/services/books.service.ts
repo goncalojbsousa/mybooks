@@ -5,6 +5,7 @@ import { Book } from '../models/book.model';
     providedIn: 'root'
 })
 export class BooksService {
+    // Mock JSON with books data
     private books: Book[] = [
         {
             "id": "1",
@@ -78,33 +79,40 @@ export class BooksService {
 
     constructor() { }
 
+    // Returns all books 
     getAll(): Book[] {
         return this.books;
     }
 
+    // Returns current favorites
     getFavorites(): Book[] {
         return this.books.filter(b => b.favorite);
     }
 
+    // Get book by id for detail view
     getById(id: string): Book | undefined {
         return this.books.find(b => b.id === id);
     }
 
+    // Toggle favorite status
     toggleFavorite(id: string): void {
         const b = this.books.find(x => x.id === id);
         if (b) { b.favorite = !b.favorite; }
     }
 
+    // Update personal opinion
     updateOpinion(id: string, opinion: string): void {
         const b = this.books.find(x => x.id === id);
         if (b) { b.opinion = opinion; }
     }
 
+    // Update rating
     updateRating(id: string, rating: number): void {
         const b = this.books.find(x => x.id === id);
         if (b) { b.rating = rating; }
     }
 
+    // Toggle read status
     toggleRead(id: string): void {
         const b = this.books.find(x => x.id === id);
         if (b) { b.read = !b.read; }

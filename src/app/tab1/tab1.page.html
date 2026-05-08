@@ -14,44 +14,37 @@
   </ion-header>
 
   <div>
+    <img [src]="fotografia" alt="Fotografia do autor" />
+
     <ion-card>
-      <img [src]="fotografia" alt="Fotografia do autor" />
-
-      <ion-card-header>
-        <ion-card-title>{{ nome }}</ion-card-title>
-        <ion-card-subtitle>Apresentação do autor</ion-card-subtitle>
-      </ion-card-header>
-
       <ion-card-content>
-        <ion-list>
-          <ion-item>
-            <ion-label>
-              <h2>Nome</h2>
-              <p>{{ nome }}</p>
-            </ion-label>
-          </ion-item>
+        <h2>Nome</h2>
+        <p>{{ nome }}</p>
+      </ion-card-content>
+    </ion-card>
 
-          <ion-item>
-            <ion-label>
-              <h2>Data de nascimento</h2>
-              <p>{{ dataNascimento }}</p>
-            </ion-label>
-          </ion-item>
+    <ion-card>
+      <ion-card-content>
+        <h2>Data de nascimento</h2>
+        <p>{{ dataNascimento }}</p>
+      </ion-card-content>
+    </ion-card>
 
-          <ion-item>
-            <ion-label>
-              <h2>Naturalidade</h2>
-              <p>{{ naturalidade }}</p>
-            </ion-label>
-          </ion-item>
-        </ion-list>
+    <ion-card>
+      <ion-card-content>
+        <h2>Naturalidade</h2>
+        <p>{{ naturalidade }}</p>
+      </ion-card-content>
+    </ion-card>
 
-        <div>
-          <h2>Breve biografia</h2>
-          <p>{{ biografia }}</p>
-          <p>{{ experiencia }}</p>
-          <p>{{ interesses }}</p>
-        </div>
+    <ion-card>
+      <ion-card-content>
+        <h2>Breve biografia</h2>
+        <p class="bio-text">{{ biografia }}</p>
+        <br>
+        <p class="bio-text">{{ experiencia }}</p>
+        <br>
+        <p class="bio-text">{{ interesses }}</p>
       </ion-card-content>
     </ion-card>
   </div>

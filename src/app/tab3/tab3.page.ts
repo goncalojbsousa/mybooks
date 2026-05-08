@@ -10,16 +10,21 @@ import { Book } from '../models/book.model';
   standalone: false,
 })
 export class Tab3Page implements OnInit {
-  favorites: Book[] = [];
+  books: Book[] = [];
 
-  constructor(private booksService: BooksService, private router: Router) {}
+  constructor(private booksService: BooksService, private router: Router) { }
 
   ngOnInit(): void {
-    this.favorites = this.booksService.getFavorites();
+    this.loadBooks();
   }
 
+  // Refresh list when returning from detail view
   ionViewWillEnter(): void {
-    this.favorites = this.booksService.getFavorites();
+    this.loadBooks();
+  }
+
+  get favorites(): Book[] {
+    return this.books.filter(book => book.favorite);
   }
 
   openDetail(book: Book) {
@@ -29,7 +34,10 @@ export class Tab3Page implements OnInit {
   toggleFavorite(book: Book, event?: Event) {
     event?.stopImmediatePropagation();
     this.booksService.toggleFavorite(book.id);
-    this.favorites = this.booksService.getFavorites();
+  }
+
+  private loadBooks(): void {
+    this.books = this.booksService.getAll();
   }
 
 }

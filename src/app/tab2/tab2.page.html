@@ -17,7 +17,9 @@
     <ion-label>Género</ion-label>
     <ion-select interface="popover" [(ngModel)]="selectedGenre" color="mybooks">
       <ion-select-option value="all">Todos</ion-select-option>
-      <ion-select-option *ngFor="let genre of genres" [value]="genre">{{ genre }}</ion-select-option>
+      @for (genre of genres; track genre) {
+      <ion-select-option [value]="genre">{{ genre }}</ion-select-option>
+      }
     </ion-select>
   </ion-item>
 
@@ -34,7 +36,8 @@
   </ion-segment>
 
   <ion-list>
-    <ion-item *ngFor="let book of filteredBooks" button (click)="openDetail(book)">
+    @for (book of filteredBooks; track book) {
+    <ion-item button (click)="openDetail(book)">
       <ion-thumbnail slot="start">
         <img [src]="book.cover || 'assets/covers/placeholder.png'" alt="Capa" />
       </ion-thumbnail>
@@ -54,5 +57,6 @@
         </ion-button>
       </ion-buttons>
     </ion-item>
+    }
   </ion-list>
 </ion-content>

@@ -21,11 +21,13 @@ export class Tab2Page implements OnInit {
     this.loadBooks();
   }
 
+  // Refresh list when returning from detail view
   ionViewWillEnter(): void {
     this.loadBooks();
   }
 
   get filteredBooks(): Book[] {
+    // Apply status and genre filters in a single derived list
     let list = this.books;
 
     if (this.selectedStatus === 'read') {
@@ -54,6 +56,7 @@ export class Tab2Page implements OnInit {
 
   private loadBooks(): void {
     this.books = this.booksService.getAll();
+    // Keep genres in sync with current dataset
     this.genres = Array.from(new Set(this.books.map(b => b.genre))).sort();
   }
 }
