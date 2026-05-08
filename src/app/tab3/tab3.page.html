@@ -22,13 +22,13 @@
         <h2>{{ book.title }}</h2>
         <p>{{ book.author }}</p>
         <p>
-          <ion-badge>{{ book.genre }}</ion-badge>
-          <ion-badge>{{ book.year }}</ion-badge>
+          <ion-badge color="mybooks">{{ book.genre }}</ion-badge>
+          <ion-badge color="mybooks">{{ book.year }}</ion-badge>
         </p>
       </ion-label>
 
       <ion-buttons slot="end">
-        <ion-button fill="clear" (click)="toggleFavorite(book, $event)">
+        <ion-button fill="clear" color="mybooks" (click)="toggleFavorite(book, $event)">
           <ion-icon name="heart"></ion-icon>
         </ion-button>
       </ion-buttons>

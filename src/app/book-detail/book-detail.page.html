@@ -1,13 +1,13 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tabs/tab2"></ion-back-button>
+      <ion-back-button defaultHref="/tabs/tab2" color="mybooks"></ion-back-button>
     </ion-buttons>
     <ion-buttons slot="end" *ngIf="book">
-      <ion-button fill="clear" (click)="toggleFavorite(book)">
+      <ion-button fill="clear" color="mybooks" (click)="toggleFavorite(book)">
         <ion-icon [name]="book.favorite ? 'heart' : 'heart-outline'"></ion-icon>
       </ion-button>
-      <ion-button fill="clear" (click)="toggleRead(book)">
+      <ion-button fill="clear" color="mybooks" (click)="toggleRead(book)">
         <ion-icon [name]="book.read ? 'checkmark-done' : 'book-outline'"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -63,10 +63,7 @@
         <ion-item>
           <ion-label position="stacked">Rating</ion-label>
           <div class="rating-stars">
-            <ion-button
-              *ngFor="let star of ratingOptions"
-              fill="clear"
-              (click)="setRating(book, star)">
+            <ion-button *ngFor="let star of ratingOptions" fill="clear" color="mybooks" (click)="setRating(book, star)">
               <ion-icon [name]="(book.rating || 0) >= star ? 'star' : 'star-outline'"></ion-icon>
             </ion-button>
           </div>

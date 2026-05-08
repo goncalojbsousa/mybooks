@@ -1,2 +1,21 @@
 // For information on how to create your own theme, please refer to:
 // https://ionicframework.com/docs/theming/
+
+:root {
+    --ion-color-mybooks: #1ee7ae;
+    --ion-color-mybooks-rgb: 30, 231, 174;
+    --ion-color-mybooks-contrast: #000000;
+    --ion-color-mybooks-contrast-rgb: 0, 0, 0;
+    --ion-color-mybooks-shade: #1acb99;
+    --ion-color-mybooks-tint: #35e9b6;
+
+}
+
+.ion-color-mybooks {
+    --ion-color-base: var(--ion-color-mybooks);
+    --ion-color-base-rgb: var(--ion-color-mybooks-rgb);
+    --ion-color-contrast: var(--ion-color-mybooks-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-mybooks-contrast-rgb);
+    --ion-color-shade: var(--ion-color-mybooks-shade);
+    --ion-color-tint: var(--ion-color-mybooks-tint);
+}
